@@ -1,16 +1,16 @@
 package com.ordermicroservice.bean;
 
-public class Buisness {
+public class Business {
 
     private int id;
     private String title;
     private String address;
 
 
-    public Buisness() {
+    public Business() {
     }
 
-    public Buisness(int id, String title, String address) {
+    public Business(int id, String title, String address) {
         this.id = id;
         this.title = title;
         this.address = address;
