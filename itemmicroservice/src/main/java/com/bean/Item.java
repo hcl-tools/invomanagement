@@ -1,7 +1,14 @@
-package com.ordermicroservice.bean;
+package com.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Item {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String title;
     private String category;
@@ -14,8 +21,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, String title, String category, String tags, double sell, double buy, int stockCount, Busine provider) {
-        this.id = id;
+    public Item(String title, String category, String tags, double sell, double buy, int stockCount, Business provider) {
         this.title = title;
         this.category = category;
         this.tags = tags;
@@ -85,7 +91,4 @@ public class Item {
         return provider;
     }
 
-    public void setProvider(Business provider) {
-        this.provider = provider;
-    }
 }
