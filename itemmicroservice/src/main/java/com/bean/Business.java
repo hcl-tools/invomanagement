@@ -1,21 +1,19 @@
 package com.bean;
 
-public class Buisness {
+public class Business {
 
     private int id;
     private String title;
     private String address;
 
-
-    public Buisness() {
+    public Business() {
     }
 
-    public Buisness(int id, String title, String address) {
+    public Business(int id, String title, String address) {
         this.id = id;
         this.title = title;
         this.address = address;
     }
-
 
     public int getId() {
         return id;
@@ -40,4 +38,5 @@ public class Buisness {
     public void setAddress(String address) {
         this.address = address;
     }
+
 }

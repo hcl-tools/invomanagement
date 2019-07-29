@@ -9,12 +9,12 @@ public class Item {
     private double sell;
     private double buy;
     private int stockCount;
-    private Buisness provider;
+    private Business provider;
 
     public Item() {
     }
 
-    public Item(int id, String title, String category, String tags, double sell, double buy, int stockCount, Buisness provider) {
+    public Item(int id, String title, String category, String tags, double sell, double buy, int stockCount, Busine provider) {
         this.id = id;
         this.title = title;
         this.category = category;
@@ -81,11 +81,11 @@ public class Item {
         this.stockCount = stockCount;
     }
 
-    public Buisness getProvider() {
+    public Business getProvider() {
         return provider;
     }
 
-    public void setProvider(Buisness provider) {
+    public void setProvider(Business provider) {
         this.provider = provider;
     }
 }
