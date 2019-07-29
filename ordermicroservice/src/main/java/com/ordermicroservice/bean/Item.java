@@ -1,6 +1,6 @@
 package com.ordermicroservice.bean;
 
-public class Order {
+public class Item {
 
     private int id;
     private String title;
@@ -11,10 +11,10 @@ public class Order {
     private int stockCount;
     private Buisness provider;
 
-    public Order() {
+    public Item() {
     }
 
-    public Order(int id, String title, String category, String tags, double sell, double buy, int stockCount, Buisness provider) {
+    public Item(int id, String title, String category, String tags, double sell, double buy, int stockCount, Buisness provider) {
         this.id = id;
         this.title = title;
         this.category = category;
