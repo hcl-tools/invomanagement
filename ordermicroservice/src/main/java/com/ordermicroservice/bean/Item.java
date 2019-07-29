@@ -14,7 +14,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, String title, String category, String tags, double sell, double buy, int stockCount, Busine provider) {
+    public Item(int id, String title, String category, String tags, double sell, double buy, int stockCount, Business provider) {
         this.id = id;
         this.title = title;
         this.category = category;
