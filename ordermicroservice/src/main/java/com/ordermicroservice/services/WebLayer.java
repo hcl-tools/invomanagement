@@ -4,9 +4,9 @@ import com.ordermicroservice.bean.Order;
 import com.ordermicroservice.dao.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +25,13 @@ public class WebLayer {
     @RequestMapping("/get/{id}")
     public Order getById(@PathVariable int id) {
         return orderRepo.findById(id).orElseThrow();
+    }
+
+    // Updating.
+
+    @RequestMapping(value = "/add/", method = RequestMethod.POST)
+    public ResponseEntity addOrder(@RequestParam("Order") Order order) {
+        orderRepo.save(order);
+        return ResponseEntity.status(HttpStatus.OK).body("Added.");
     }
 }
