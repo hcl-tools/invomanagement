@@ -1,14 +1,16 @@
 package com.ordermicroservice.bean;
 
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
 
-@Entity
-@Table(name = "orderLinks")
+//import javax.persistence.*;
+
+//@Entity
+//@Table(name = "orderLinks")
 public class OrderLinks {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int itemId;
     private int orderId;
