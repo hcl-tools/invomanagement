@@ -10,7 +10,6 @@ public class Business {
     }
 
     public Business(String title, String address) {
-        this.id = id;
         this.title = title;
         this.address = address;
     }
