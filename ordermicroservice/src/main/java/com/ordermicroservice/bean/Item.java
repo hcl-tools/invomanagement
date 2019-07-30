@@ -1,11 +1,14 @@
 package com.ordermicroservice.bean;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+
 public class Item {
 
-    private int id;
+    @Id
+    private ObjectId _id;
     private String title;
     private String category;
-    private String tags;
     private double sell;
     private double buy;
     private int stockCount;
@@ -14,23 +17,21 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, String title, String category, String tags, double sell, double buy, int stockCount, Business provider) {
-        this.id = id;
+    public Item(String title, String category, double sell, double buy, int stockCount, Business provider) {
         this.title = title;
         this.category = category;
-        this.tags = tags;
         this.sell = sell;
         this.buy = buy;
         this.stockCount = stockCount;
         this.provider = provider;
     }
 
-    public int getId() {
-        return id;
+    public ObjectId get_id() {
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void set_id(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getTitle() {
@@ -47,14 +48,6 @@ public class Item {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
     }
 
     public double getSell() {
@@ -85,7 +78,17 @@ public class Item {
         return provider;
     }
 
-    public void setProvider(Business provider) {
-        this.provider = provider;
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + _id +
+                ", title='" + title + '\'' +
+                ", category='" + category + '\'' +
+                ", sell=" + sell +
+                ", buy=" + buy +
+                ", stockCount=" + stockCount +
+                ", provider=" + provider +
+                '}';
     }
 }
