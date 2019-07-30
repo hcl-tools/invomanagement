@@ -30,8 +30,8 @@ public class ItemController {
     }
 
     //FIND BY ID
-    @RequestMapping("/find/{id}")
-    public ResponseEntity getById(@RequestParam ("id") int id){
+    @RequestMapping("/find")
+    public ResponseEntity getById(@RequestParam("id") int id){
         boolean exists = itemService.checkItemExists(id);
         if (exists){
             return ok(dao.findById(id));
@@ -51,10 +51,15 @@ public class ItemController {
     }
 
     //DELETE
-    @RequestMapping("/delete/{id}")
-    public ResponseEntity deleteItem(int id){
-
+    @RequestMapping("/delete")
+    public ResponseEntity deleteItem(@RequestParam("id") int id){
+        boolean exists = itemService.checkItemExists(id);
+        if (exists){
+            return ResponseEntity.status(HttpStatus.OK).body("Item with id" + id + " deleted from database")
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No item with that id exists");
     }
+
 
 
 
