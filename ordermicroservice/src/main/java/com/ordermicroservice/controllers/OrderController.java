@@ -1,7 +1,10 @@
 package com.ordermicroservice.controllers;
 
+import com.ordermicroservice.bean.Business;
+import com.ordermicroservice.bean.Item;
 import com.ordermicroservice.bean.Order;
 import com.ordermicroservice.bean.OrderLinks;
+import com.ordermicroservice.dao.ItemRepo;
 import com.ordermicroservice.dao.OrderLinksRepo;
 import com.ordermicroservice.dao.OrderRepo;
 import com.ordermicroservice.exceptions.NotFoundException;
@@ -21,6 +24,9 @@ public class OrderController {
 
     @Autowired
     OrderLinksRepo orderLinksRepo;
+
+    @Autowired
+    ItemRepo itemRepo;
 
     // Read
     @RequestMapping("/all")
@@ -60,6 +66,24 @@ public class OrderController {
     public ResponseEntity deleteOrder(@PathVariable("id") int id) {
         orderRepo.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("Deleted");
+    }
+
+    @RequestMapping("/test/setup")
+    public ResponseEntity testSetup() {
+        Business newBusiness = new Business();
+        List<Item> itemList = List.of(
+
+                new Item("dog food", "dog", 4.50, 1.05, 3, newBusiness),
+                new Item("cat food", "dog", 4.50, 1.05, 3, newBusiness),
+                new Item("fish food", "dog", 4.50, 1.05, 3, newBusiness),
+                new Item("cow food", "dog", 4.50, 1.05, 3, newBusiness),
+                new Item("person food", "dog", 4.50, 1.05, 3, newBusiness)
+
+        );
+        itemList.forEach(item -> {
+            itemRepo.save(item);
+        });
+        return ok("It worked... i think?");
     }
 
     /**
