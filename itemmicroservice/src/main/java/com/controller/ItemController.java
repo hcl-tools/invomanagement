@@ -65,7 +65,7 @@ public class ItemController {
     public ResponseEntity deleteItem(@RequestParam("id") int id){
         boolean exists = itemService.checkItemExists(id);
         if (exists){
-            return ResponseEntity.status(HttpStatus.OK).body("Item with id" + id + " deleted from database")
+            return ResponseEntity.status(HttpStatus.OK).body("Item with id" + id + " deleted from database");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No item with that id exists");
     }
