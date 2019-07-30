@@ -9,7 +9,7 @@ public class Business {
     public Business() {
     }
 
-    public Business(int id, String title, String address) {
+    public Business(String title, String address) {
         this.id = id;
         this.title = title;
         this.address = address;
