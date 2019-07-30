@@ -1,14 +1,14 @@
 package com.bean;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
-@Entity
+
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private ObjectId _id;
     private String title;
     private String category;
     private double sell;
@@ -28,12 +28,12 @@ public class Item {
         this.provider = provider;
     }
 
-    public int getId() {
-        return id;
+    public ObjectId get_id() {
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void set_id(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getTitle() {
@@ -84,7 +84,7 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "id=" + id +
+                "id=" + _id +
                 ", title='" + title + '\'' +
                 ", category='" + category + '\'' +
                 ", sell=" + sell +

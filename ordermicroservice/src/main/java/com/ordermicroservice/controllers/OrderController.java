@@ -68,23 +68,23 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body("Deleted");
     }
 
-    @RequestMapping("/test/setup")
-    public ResponseEntity testSetup() {
-        Business newBusiness = new Business();
-        List<Item> itemList = List.of(
-
-                new Item("dog food", "dog", 4.50, 1.05, 3, newBusiness),
-                new Item("cat food", "dog", 4.50, 1.05, 3, newBusiness),
-                new Item("fish food", "dog", 4.50, 1.05, 3, newBusiness),
-                new Item("cow food", "dog", 4.50, 1.05, 3, newBusiness),
-                new Item("person food", "dog", 4.50, 1.05, 3, newBusiness)
-
-        );
-        itemList.forEach(item -> {
-            itemRepo.save(item);
-        });
-        return ok("It worked... i think?");
-    }
+//    @RequestMapping("/test/setup")
+//    public ResponseEntity testSetup() {
+//        Business newBusiness = new Business();
+//        List<Item> itemList = List.of(
+//
+//                new Item("dog food", "dog", 4.50, 1.05, 3, newBusiness),
+//                new Item("cat food", "dog", 4.50, 1.05, 3, newBusiness),
+//                new Item("fish food", "dog", 4.50, 1.05, 3, newBusiness),
+//                new Item("cow food", "dog", 4.50, 1.05, 3, newBusiness),
+//                new Item("person food", "dog", 4.50, 1.05, 3, newBusiness)
+//
+//        );
+//        itemList.forEach(item -> {
+//            itemRepo.save(item);
+//        });
+//        return ok("It worked... i think?");
+//    }
 
     /**
      * Order number

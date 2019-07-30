@@ -1,18 +1,14 @@
 package com.dao;
 
 import com.bean.Item;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ItemRepo extends JpaRepository<Item, Integer> {
+public interface ItemRepo extends MongoRepository<Item, Integer> {
+    public Item findAllBy_id_Counter();
 
-    @Query(value = "SELECT i FROM Item i WHERE i.sell", nativeQuery = false)
-    List<Item> findSoldItems();
 
-    @Query(value = "SELECT i FROM Item i WHERE i.buy", nativeQuery = false)
-    List<Item> findBoughtItems();
 
 }
