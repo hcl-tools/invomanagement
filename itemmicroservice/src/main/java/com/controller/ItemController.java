@@ -39,7 +39,17 @@ public class ItemController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No item with that id exists");
     }
 
-    //post take a list of items and save items to dao
+    //find by sold
+    @RequestMapping("/sold")
+    public ResponseEntity getSoldItems(){
+        return ok(dao.findSoldItems());
+    }
+
+    //find by bought
+    @RequestMapping("/bought")
+    public ResponseEntity getBoughtItems(){
+        return ok(dao.findBoughtItems());
+    }
 
     //UPDATE
     @RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -55,24 +65,14 @@ public class ItemController {
     public ResponseEntity deleteItem(@RequestParam("id") int id){
         boolean exists = itemService.checkItemExists(id);
         if (exists){
-            return ResponseEntity.status(HttpStatus.OK).body("Item with id" + id + " deleted from database")
+            return ResponseEntity.status(HttpStatus.OK).body("Item with id" + id + " deleted from database");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No item with that id exists");
     }
 
 
-
-
-
-
-
-
-
     public ResponseEntity ok(Object o){
         return ResponseEntity.ok(o);
     }
-
-
-
 
 }
