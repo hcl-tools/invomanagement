@@ -39,7 +39,17 @@ public class ItemController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No item with that id exists");
     }
 
-    //post take a list of items and save items to dao
+    //find by sold
+    @RequestMapping("/sold")
+    public ResponseEntity getSoldItems(){
+        return ok(dao.findSoldItems());
+    }
+
+    //find by bought
+    @RequestMapping("/bought")
+    public ResponseEntity getBoughtItems(){
+        return ok(dao.findBoughtItems());
+    }
 
     //UPDATE
     @RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -61,18 +71,8 @@ public class ItemController {
     }
 
 
-
-
-
-
-
-
-
     public ResponseEntity ok(Object o){
         return ResponseEntity.ok(o);
     }
-
-
-
 
 }
