@@ -1,18 +1,16 @@
 package com.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String category;
-    private String tags;
     private double sell;
     private double buy;
     private int stockCount;
@@ -21,10 +19,9 @@ public class Item {
     public Item() {
     }
 
-    public Item(String title, String category, String tags, double sell, double buy, int stockCount, Business provider) {
+    public Item(String title, String category, double sell, double buy, int stockCount, Business provider) {
         this.title = title;
         this.category = category;
-        this.tags = tags;
         this.sell = sell;
         this.buy = buy;
         this.stockCount = stockCount;
@@ -55,14 +52,6 @@ public class Item {
         this.category = category;
     }
 
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
-
     public double getSell() {
         return sell;
     }
@@ -91,4 +80,17 @@ public class Item {
         return provider;
     }
 
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", category='" + category + '\'' +
+                ", sell=" + sell +
+                ", buy=" + buy +
+                ", stockCount=" + stockCount +
+                ", provider=" + provider +
+                '}';
+    }
 }
